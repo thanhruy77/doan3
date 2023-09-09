@@ -1,0 +1,54 @@
+#include <16f877a.h>
+#device ADC=10
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP  //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#use delay(crystal=20000000)
+#byte portd = 8
+#byte portc = 0x07
+// khiai báo chân lcd 
+#define LCD_ENABLE_PIN  PIN_D3
+#define LCD_RS_PIN PIN_D1
+#define LCD_RW_PIN PIN_D2
+#define LCD_DATA4 PIN_D4
+#define LCD_DATA5 PIN_D5
+#define LCD_DATA6 PIN_D6
+#define LCD_DATA7 PIN_D7
+#include <lcd.c>
+#define cambien input(pin_c0)
+#bit motor = portc.7
+long map(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+void main(){
+    //khoi tao lcd 
+   lcd_init();
+   set_tris_c(0x0F);
+   //doc adc
+   setup_adc(ADC_CLOCK_INTERNAL);
+   setup_adc_ports(ALL_ANALOG);
+   set_adc_channel(0);//Doc gia tri adc o chan A0
+   lcd_gotoxy(1,1);
+   printf(lcd_putc,"Do Am:");
+   lcd_gotoxy(11,1);
+   printf(lcd_putc,"%%");
+   float vl_real;
+   float abc;
+   while(TRUE){
+      delay_us(10);
+      vl_real = read_adc();
+      lcd_gotoxy(8,1);
+      abc = map(vl_real,0,1015,0,100); // gia tri adc doc duoc
+      printf(lcd_putc,"%0.0f",abc);
+      if(abc < 60)
+         {
+         lcd_gotoxy(1,2);
+         printf(lcd_putc,"may bom bat");
+         motor = 1;
+         }
+      else
+         motor = 0; 
+         lcd_gotoxy(1,2);
+         printf(lcd_putc,"may bom tat");
+   }
+}

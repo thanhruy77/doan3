@@ -1,0 +1,5 @@
+Compiling C:\Users\THANH DUY\Documents\Do An 3\DO_AN3_THANH_DUY\DO_AN3_THANH_DUY\main on 09-Jan-23 at 13:23
+>>> Warning 203 "C:\Users\THANH DUY\Documents\Do An 3\DO_AN3_THANH_DUY\DO_AN3_THANH_DUY\main.c" Line 56(1,1): Condition always TRUE
+      Memory usage:   ROM=24%      RAM=5% - 15%
+      0 Errors,  1 Warnings.
+Build Successful.

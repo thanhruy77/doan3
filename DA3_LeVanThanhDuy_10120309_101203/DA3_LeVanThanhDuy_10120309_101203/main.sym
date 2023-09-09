@@ -1,0 +1,168 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-024 vl_real
+025-028 do_am
+029-02A @sprintf_string
+02B     lcd_init.i
+02B-02E @PRINTF_L32D_725FPFPF.P1
+02B-02E @FLT.P2
+02B-02E map.x
+02B-02C @ITOF.P1
+02B     MAIN.@SCRATCH1
+02B     @PSTRINGC7_725.@SCRATCH1
+02C-02F lcd_init.LCD_INIT_STRING
+02C     @PSTRINGC7_725.@SCRATCH2
+02D     @PSTRINGC7_725.@SCRATCH3
+02E     @PSTRINGC7_725.@SCRATCH4
+02F-032 map.in_min
+02F     @PRINTF_L32D_725FPFPF.P1
+02F-032 @FLT.P2
+030     lcd_init.@SCRATCH1
+030     @PRINTF_L32D_725FPFPF.@SCRATCH1
+031     @PRINTF_L32D_725FPFPF.@SCRATCH2
+032     @PRINTF_L32D_725FPFPF.@SCRATCH3
+033-036 map.in_max
+033     @PRINTF_L32D_725FPFPF.@SCRATCH4
+033     @FLT.@SCRATCH1
+034     @PRINTF_L32D_725FPFPF.@SCRATCH5
+034     @FLT.@SCRATCH2
+035     @PRINTF_L32D_725FPFPF.@SCRATCH6
+036     @PRINTF_L32D_725FPFPF.@SCRATCH7
+037-03A map.out_min
+037     @PRINTF_L32D_725FPFPF.@SCRATCH8
+038     lcd_putc.c
+038-03B @DIV3232.P1
+038-03B @FTOSD.P2
+039     @delay_ms1.P1
+039     lcd_gotoxy.x
+03A     lcd_gotoxy.y
+03B-03E map.out_max
+03B     lcd_gotoxy.address
+03C-03F @DIV3232.P1
+03C     lcd_gotoxy.@SCRATCH1
+03C     @FTOSD.@SCRATCH1
+03D     lcd_send_byte.address
+03E     lcd_send_byte.n
+03F     lcd_read_byte.low
+03F-042 @SFTOI.P1
+03F     lcd_send_byte.@SCRATCH1
+03F     map.@SCRATCH1
+040     lcd_read_byte.high
+040     lcd_send_nibble.n
+040     map.@SCRATCH2
+040     @DIV3232.@SCRATCH1
+041     lcd_read_nibble.n
+041     lcd_read_byte.@SCRATCH1
+041     map.@SCRATCH3
+041     @DIV3232.@SCRATCH2
+042     lcd_read_nibble.@SCRATCH1
+042     map.@SCRATCH4
+042     @DIV3232.@SCRATCH3
+043-046 @MULFF.P1
+043-046 @ADDFF.P2
+043-046 @DIVFF.P3
+043     @DIV3232.@SCRATCH4
+044     @DIV3232.@SCRATCH5
+047-04A @ADDFF.P1
+047-04A @DIVFF.P2
+047-04A @MULFF.P3
+04B     @ADDFF.@SCRATCH1
+04B     @MULFF.@SCRATCH1
+04B     @DIVFF.@SCRATCH1
+04C     @ADDFF.@SCRATCH2
+04C     @MULFF.@SCRATCH2
+04C     @DIVFF.@SCRATCH2
+04D     @ADDFF.@SCRATCH3
+04D     @MULFF.@SCRATCH3
+04D     @DIVFF.@SCRATCH3
+04E     @ADDFF.@SCRATCH4
+04E     @MULFF.@SCRATCH4
+04E     @DIVFF.@SCRATCH4
+04F     @ADDFF.@SCRATCH5
+04F     @MULFF.@SCRATCH5
+04F     @DIVFF.@SCRATCH5
+050     @ADDFF.@SCRATCH6
+050     @DIVFF.@SCRATCH6
+051     @ADDFF.@SCRATCH7
+052     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const760.call
+000008  @const780.call
+00000C  @const781.call
+000010  @delay_ms1
+000024  lcd_send_nibble
+000056  lcd_read_nibble
+000087  lcd_send_byte
+00009B  lcd_read_byte
+000101  lcd_init
+000159  set_adc_
+000171  lcd_gotoxy
+000183  lcd_putc
+0001AF  @PSTRINGC7_725
+000205  @ITOF
+000222  @ADDFF
+000363  @MULFF
+0003D8  map
+00043F  @DIVFF
+00052A  @SFTOI
+00054C  @DIV3232
+00059B  @PRINTF_L32D_725FPFPF
+0005C2  @FTOSD
+00067D  @FLT
+0006BC  MAIN
+0006BC  @cinit1
+0006CA  @cinit2
+
+Project Directory:
+    C:\Users\THANH DUY\Documents\Do An 3\DO_AN3_THANH_DUY\DO_AN3_THANH_DUY\
+
+Project Files:
+    main.c                                                  [09-Jan-23 13:23  CRC=C5BEE373]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [21-Jan-21 11:32  CRC=DB498A92]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-Feb-16 09:05  CRC=D1A6378A]
+
+Source signature=4454DD19
+Program memory checksum=0000
+Hex file CRC=E6F7
+
+Units:
+    C:\Users\THANH DUY\Documents\Do An 3\DO_AN3_THANH_DUY\DO_AN3_THANH_DUY\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
